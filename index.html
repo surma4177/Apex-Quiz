@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Apex Quiz - The ultimate trivia and brain training quiz game in Bengali and English.">
+    <title>Apex Quiz - Ultimate Trivia & Brain Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --primary-dark: #3730A3;
+            --accent: #F59E0B;
+            --accent-green: #10B981;
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #334155;
+            --gradient-hero: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 8% 60px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+            min-height: 80vh;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 70, 229, 0.15);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 540px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-hero);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #2D3748;
+            border-color: #4B5563;
+        }
+
+        /* Phone Mockup */
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #1E293B;
+            border: 10px solid #334155;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5px;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 15px;
+        }
+
+        .coin-pill {
+            background: rgba(245, 158, 11, 0.2);
+            color: #FBBF24;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quiz-card-preview {
+            background: linear-gradient(145deg, #2D3748, #1A202C);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #4A5568;
+        }
+
+        .quiz-q {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .quiz-option {
+            background: #2D3748;
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #4A5568;
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10B981;
+            color: #34D399;
+            font-weight: 700;
+        }
+
+        .lifeline-row {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+            justify-content: space-around;
+            padding-top: 10px;
+        }
+
+        .lifeline-badge {
+            background: #2A374A;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            text-align: center;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.15);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(79, 70, 229, 0.15);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .cat-chip {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px 15px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .cat-chip span {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .cat-chip:hover {
+            border-color: var(--accent);
+            transform: scale(1.03);
+        }
+
+        /* Ad Network Notice Section */
+        .ad-banner-info {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(16, 185, 129, 0.15));
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .ad-banner-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+
+        .ad-banner-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 650px;
+        }
+
+        /* Footer */
+        footer {
+            background: #090E1A;
+            padding: 50px 8% 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links h5 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1E293B;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .mockup-container {
+                margin-top: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">🏆</div>
+            <span>Apex Quiz</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#categories">Categories</a>
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="app-ads.txt" target="_blank">app-ads.txt</a>
+            <a href="#download" class="btn-nav">Get App</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-badge">⚡ Test Your IQ &amp; Knowledge</div>
+            <h1>Challenge Your Brain with <span class="gradient-text">Apex Quiz</span></h1>
+            <p>The ultimate bilingual quiz game featuring thousands of questions in Bengali &amp; English. Earn coins,
+                activate powerful lifelines, bookmark tough questions, and master trivia!</p>
+            <div class="hero-actions" id="download">
+                <a href="#" class="btn-primary">
+                    <span>📱 Download on Google Play</span>
+                </a>
+                <a href="privacy_policy.html" class="btn-secondary">
+                    <span>🛡️ Privacy Policy</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="mockup-container">
+            <div class="phone-mockup">
+                <div class="phone-header">
+                    <span style="font-size: 0.8rem; font-weight: 700;">Question 4/10</span>
+                    <div class="coin-pill">🪙 150 Coins</div>
+                </div>
+
+                <div class="quiz-card-preview">
+                    <div class="quiz-q">What is the capital of Bangladesh? / বাংলাদেশের রাজধানী কোনটি?</div>
+                    <div class="quiz-option">A) Chittagong / চট্টগ্রাম</div>
+                    <div class="quiz-option correct">B) Dhaka / ঢাকা ✓</div>
+                    <div class="quiz-option">C) Sylhet / সিলেট</div>
+                    <div class="quiz-option">D) Rajshahi / রাজশাহী</div>
+                </div>
+
+                <div
+                    style="background: rgba(79, 70, 229, 0.15); border-radius: 10px; padding: 10px; font-size: 0.75rem; color: #A5B4FC; margin-bottom: 12px; text-align: center;">
+                    💡 Correct! Earned +10 Coins
+                </div>
+
+                <div class="lifeline-row">
+                    <div class="lifeline-badge">⚡ 50/50</div>
+                    <div class="lifeline-badge">⏭️ Skip</div>
+                    <div class="lifeline-badge">💡 Hint</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <h2>Packed with Rich Features</h2>
+            <p>Designed for fast learning, intuitive gameplay, and seamless user experience.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Bilingual Support</h3>
+                <p>Switch seamlessly between Bengali (বাংলা) and English with instant question and interface
+                    translation.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🪙</div>
+                <h3>Coin &amp; Lifelines</h3>
+                <p>Earn virtual coins by answering correctly. Spend coins on 50/50, Skip, and smart hints when in
+                    trouble.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔖</div>
+                <h3>Smart Bookmarks</h3>
+                <p>Save tricky or favorite questions to your personal bookmarks to review them anytime offline.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3>Dark &amp; Light Theme</h3>
+                <p>Comfortable viewing with dark mode toggle to protect your eyes during nighttime quiz sessions.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>100% Offline Capable</h3>
+                <p>No internet required for basic quiz gameplay. All questions and assets run blazing fast directly from
+                    your device.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Strictly Privacy-First</h3>
+                <p>No account creation, no trackers, and zero personal data collection. Your scores and coins remain
+                    purely on your device.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories" style="background: #131D31;">
+        <div class="section-header">
+            <h2>Explore Diverse Categories</h2>
+            <p>Comprehensive question banks covering top educational and competitive exam topics.</p>
+        </div>
+
+        <div class="categories-grid">
+            <div class="cat-chip">
+                <span>🌍</span>
+                General Knowledge
+            </div>
+            <div class="cat-chip">
+                <span>🔬</span>
+                Science &amp; Nature
+            </div>
+            <div class="cat-chip">
+                <span>🏛️</span>
+                World History
+            </div>
+            <div class="cat-chip">
+                <span>⚽</span>
+                Sports &amp; Games
+            </div>
+            <div class="cat-chip">
+                <span>💻</span>
+                Technology
+            </div>
+            <div class="cat-chip">
+                <span>📖</span>
+                English Literature
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Network & Verification Info -->
+    <section class="section">
+        <div class="ad-banner-info">
+            <div>
+                <h3>🛡️ Developer Transparency &amp; Ad Verification</h3>
+                <p>Apex Quiz adheres strictly to Google Play Developer policies and IAB Tech Lab standards. We maintain
+                    verified records for app ownership and monetization security.</p>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <a href="app-ads.txt" target="_blank" class="btn-secondary" style="font-size: 0.9rem;">View
+                    app-ads.txt</a>
+                <a href="privacy_policy.html" class="btn-primary" style="font-size: 0.9rem;">View Privacy Policy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Apex Quiz</h4>
+                <p>The ultimate quiz application for knowledge seekers, students, and competitive exam enthusiasts.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #64748B;">Package: com.quizeapp.bestquizes</p>
+            </div>
+
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#categories">Quiz Categories</a></li>
+                    <li><a href="#download">Download APK</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5>Legal &amp; Developer</h5>
+                <ul>
+                    <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="app-ads.txt" target="_blank">app-ads.txt Record</a></li>
+                    <li><a href="mailto:surma4177@gmail.com">surma4177@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Apex Quiz. Built with passion. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

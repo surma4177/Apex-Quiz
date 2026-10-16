@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Apex Quiz</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+            --bg-body: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border: #E5E7EB;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #6366F1;
+                --primary-dark: #4F46E5;
+                --text-main: #F3F4F6;
+                --text-muted: #9CA3AF;
+                --bg-body: #111827;
+                --bg-card: #1F2937;
+                --border: #374151;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-main);
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: rgba(79, 70, 229, 0.08);
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Privacy Policy</h1>
+        <p class="date"><strong>App Name:</strong> Apex Quiz</p>
+        <p class="date"><strong>Package Name:</strong> com.quizeapp.bestquizes</p>
+        <p class="date"><strong>Effective Date:</strong> October 16, 2026 (Last Updated)</p>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Summary:</strong> Apex Quiz is designed to respect your privacy. We do not collect or share personal information (such as your name, email, or exact location). Game progress, scores, bookmarks, and preferences are stored exclusively on your device. Currently, the app does not contain advertisements, but future versions may integrate third-party advertising networks (e.g., Google AdMob).</p>
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p>Welcome to <strong>Apex Quiz</strong>. This Privacy Policy outlines our guidelines and policies regarding the collection, use, and disclosure of personal or device information when you use our mobile application.</p>
+    <p>By downloading and using Apex Quiz, you agree to the collection and use of information in accordance with this policy.</p>
+
+    <h2>2. Information Collection and Storage</h2>
+    <p><strong>A. Personal Information:</strong><br>
+    We do not collect any personally identifiable information (PII) such as your name, email address, phone number, address, or physical location. You can enjoy the full experience of the app without creating an account or logging in.</p>
+
+    <p><strong>B. Locally Stored Data (On-Device):</strong><br>
+    Apex Quiz saves certain gameplay data locally on your device using Android's private <code>SharedPreferences</code>. This includes:</p>
+    <ul>
+        <li><strong>In-app Game Coins:</strong> Virtual coins earned and used for quiz lifelines (50/50, Skip, Hint).</li>
+        <li><strong>High Score & Quiz Stats:</strong> Your personal game records and accuracy scores.</li>
+        <li><strong>Bookmarked Questions:</strong> Questions you manually save for future review.</li>
+        <li><strong>User Preferences:</strong> Theme preference (Light Mode / Dark Mode) and language preference (English / Bengali).</li>
+    </ul>
+    <p><em>Note: This data never leaves your device and is not uploaded to any remote server or third party.</em></p>
+
+    <h2>3. Device Permissions Used</h2>
+    <p>Apex Quiz requests only the minimal necessary permissions required to provide essential features:</p>
+    <ul>
+        <li><strong>android.permission.VIBRATE:</strong> Used solely to provide subtle haptic feedback when you tap options, submit answers, or use lifelines during a quiz. It does not access any personal data.</li>
+    </ul>
+
+    <h2>4. Advertising and Third-Party Services (Future Implementation)</h2>
+    <div class="highlight-box">
+        <p><strong>Current Status:</strong> As of the current release, <strong>Apex Quiz contains NO advertisements</strong> and does not use advertising tracking SDKs.</p>
+    </div>
+    <p><strong>Future Monetization Plan:</strong><br>
+    To support continued development, maintenance, and new question updates, future versions of the app may integrate third-party ad networks (such as <strong>Google AdMob</strong>). When implemented:</p>
+    <ul>
+        <li>Ad networks may use device identifiers, such as the Google Advertising ID (AAID), cookies, and non-personal diagnostic data to deliver advertisements (e.g., banner, interstitial, or rewarded video ads).</li>
+        <li>Advertising partners operate in accordance with their respective privacy policies. You can learn more about how Google handles ad data at: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Advertising & Privacy</a>.</li>
+        <li>You will be able to opt out of personalized advertising at any time through your Android device settings: <em>Settings &gt; Google &gt; Ads &gt; Delete advertising ID or Opt out of Ads Personalization</em>.</li>
+    </ul>
+
+    <h2>5. Third-Party Libraries</h2>
+    <p>The app currently uses standard, reputable open-source libraries for user interface and local data processing:</p>
+    <ul>
+        <li><strong>Google Material Components & AndroidX:</strong> For modern, responsive user interface design.</li>
+        <li><strong>Google Gson:</strong> For parsing locally stored JSON data (bookmarks).</li>
+        <li><strong>Airbnb Lottie:</strong> For lightweight, smooth vector animations.</li>
+    </ul>
+    <p>None of these libraries collect or transmit personal user data to external servers in this application.</p>
+
+    <h2>6. Children's Privacy (COPPA Compliance)</h2>
+    <p>Apex Quiz is an educational trivia and learning application suitable for a general audience. We do not knowingly collect personally identifiable information from children under 13 years of age. Because we do not collect any personal data, children can safely enjoy the quiz app without privacy risks. If a parent or guardian discovers that a child has provided us with personal information, please contact us so we can immediately address it.</p>
+
+    <h2>7. Data Security and User Control</h2>
+    <p>Since your game records and bookmarks are stored exclusively on your local device:</p>
+    <ul>
+        <li>You can delete all stored data at any time by going to your device's <strong>Settings &gt; Apps &gt; Apex Quiz &gt; Storage &gt; Clear Storage / Clear Data</strong>.</li>
+        <li>Uninstalling the application will permanently erase all local data and saved preferences.</li>
+    </ul>
+
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy periodically, especially when integrating new features or monetization services (such as ad networks). Any updates will be reflected on this page with a revised "Effective Date". We encourage you to review this policy periodically for any changes.</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions, suggestions, or concerns regarding this Privacy Policy or the Apex Quiz app, please feel free to contact us:</p>
+    <ul>
+        <li><strong>Developer:</strong> Surma Begum</li>
+        <li><strong>Email:</strong> <a href="mailto:surma4177@gmail.com">surma4177@gmail.com</a> </li>
+    </ul>
+
+    <footer>
+        <p>&copy; 2026 Apex Quiz. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
